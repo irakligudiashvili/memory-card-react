@@ -1,0 +1,23 @@
+.guide{
+    text-align: center;
+    background-color: #e6e6e6;
+    color: #000;
+
+    width: min(1000px, 90%);
+    margin: auto;
+    box-sizing: border-box;
+    padding: 5px 25px;
+    border-radius: 30px;
+}
+
+.guide__title{
+    font-size: 2.5rem;
+}
+
+.guide__text{
+    font-size: 1.25rem;
+}
+
+.guide__btn{
+    margin-bottom: 20px;
+}
