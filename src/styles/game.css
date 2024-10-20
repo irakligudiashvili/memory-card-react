@@ -1,0 +1,45 @@
+.game{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: min(1000px, 90%);
+    margin: auto;
+    justify-content: center;
+
+    background-color: #999595;
+
+    padding: 30px 10px;
+    /* box-sizing: border-box; */
+
+    align-items: center;
+    gap: 30px;
+
+    border-radius: 50px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    text-align: center;
+
+
+    border: 2px solid #ddd;
+    border-radius: 30px;
+}
+
+.cardImg{
+    height: 250px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+    padding: 5px;
+    width: auto;
+    object-fit: cover;
+}
+
+.card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}

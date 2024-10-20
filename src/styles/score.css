@@ -1,10 +1,11 @@
 .score{
-    /* width: 80vw; */
+    margin: auto;
     gap: 25vw;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    justify-self: center;
+
+    margin-top: 20px;
 }
 
 .score__wrapper{
