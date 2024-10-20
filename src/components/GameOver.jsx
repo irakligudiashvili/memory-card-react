@@ -1,9 +1,13 @@
+import '../styles/gameOver.css';
+
 function GameOver({ currentScore, maxScore }){
     return (
         <div className='gameOver'>
-            <p>{currentScore}</p>
-            <p>{maxScore}</p>
-            <button>Play Again</button>
+            <div className='gameOver__score'>
+                <p>Current Score: {currentScore}</p>
+                <p>Max Score: {maxScore}</p>
+            </div>
+            <button className='gameOver__btn'>Play Again</button>
         </div>
     )
 }

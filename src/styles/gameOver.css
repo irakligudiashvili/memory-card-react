@@ -1,0 +1,22 @@
+.gameOver{
+    background-color: #b5b5b5;
+    width: 300px;
+    height: 225px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+
+    /* top: 30%; */
+    /* width: fit-content; */
+    margin-inline: auto;
+    left: 0;
+    right: 0;
+}
+
+.gameOver__btn{
+    color: #fff;
+}
