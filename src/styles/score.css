@@ -1,0 +1,23 @@
+.score{
+    /* width: 80vw; */
+    gap: 25vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.score__wrapper{
+    width: 200px;
+    height: 60px;
+
+    background-color: #f3efef;
+    box-sizing: border-box;
+    padding: 0 25px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 5px #1f1e1e9d;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+}
