@@ -28,6 +28,18 @@ function Game(){
         {breed: 'Bolognese', src: 'src/assets/bolognese.webp', isClicked: false},
     ]);
 
+    // Fisher-Yates shuffle
+
+    const shuffleArray = (array) => {
+        const arr = [...array];
+        for (let i = arr.length - 1; i > 0; i--){
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+
+        return arr;
+    }
+
     const selectBreeds = (breeds) => {
         const unclickedBreeds = breeds.filter(breed => !breed.isClicked);
 
@@ -39,7 +51,9 @@ function Game(){
         const remainingBreeds = breeds.filter(breed => breed !== randomUnclickedBreed);
         const shuffledRemainingBreeds = remainingBreeds.sort(() => 0.5 - Math.random());
 
-        return [randomUnclickedBreed, ...shuffledRemainingBreeds.slice(0, 5)];
+        const shuffledAllBreeds = [randomUnclickedBreed, ...shuffledRemainingBreeds.slice(0, 5)];
+
+        return shuffleArray(shuffledAllBreeds);
     }
 
     function handleGame(clickedBreed){
