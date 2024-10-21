@@ -7,7 +7,11 @@ import GameOver from './components/GameOver';
 
 function App() {
   const [showGuide, setShowGuide] = useState(true);
-  const [showGameOver, setGameOver] = useState(true);
+  const [gameOver, setGameOver] = useState(true);
+
+  const handleGameOver = () => {
+    setGameOver(!gameOver);
+  }
 
   const handleStartGame = () => {
     setShowGuide(false);
@@ -15,15 +19,15 @@ function App() {
 
   return (
     <div className='body'>
-      {showGuide && <Guide handleStart={handleStartGame} />}
-      {!showGuide && (
-        <div className='container'>
-          <Score currentScore={0} maxScore={15} />
-          <Game />
-        </div>
+      {showGuide && !gameOver && <Guide handleStart={handleStartGame} />}
+      {!showGuide && !gameOver && (
+          <div className='container'>
+            <Score currentScore={0} maxScore={15} />
+            <Game />
+          </div>
       )}
-      {showGameOver && (
-        <GameOver currentScore={5} maxScore={15} />
+      {gameOver && (
+        <GameOver currentScore={5} maxScore={15} handleGameOver={handleGameOver} />
       )}
     </div>
   )
