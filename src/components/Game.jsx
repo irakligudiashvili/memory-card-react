@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import '../styles/game.css';
 
 function Game(){
 
-    const breeds = [
+    const [breeds, setBreed] = useState([
         {breed: 'Shiba', src: 'src/assets/shiba.png', isClicked: false},
         {breed: 'Spaniel', src: 'src/assets/spaniel.png', isClicked: false},
         {breed: 'Bulldog', src: 'src/assets/bulldog.jpg', isClicked: false},
@@ -25,30 +26,43 @@ function Game(){
         {breed: 'Cavapoo', src: 'src/assets/cavapoo.webp', isClicked: false},
         {breed: 'Briad', src: 'src/assets/briad.webp', isClicked: false},
         {breed: 'Bolognese', src: 'src/assets/bolognese.webp', isClicked: false},
-    ]
+    ]);
 
-    function selectBreeds(breeds){
+    const selectBreeds = (breeds) => {
         const unclickedBreeds = breeds.filter(breed => !breed.isClicked);
 
-        if(unclickedBreeds.length === 0) {
-            // Player wins
+        if(unclickedBreeds.length === 0){
+            console.log('you win');
         }
 
         const randomUnclickedBreed = unclickedBreeds[Math.floor(Math.random() * unclickedBreeds.length)];
-
         const remainingBreeds = breeds.filter(breed => breed !== randomUnclickedBreed);
-
         const shuffledRemainingBreeds = remainingBreeds.sort(() => 0.5 - Math.random());
 
-        const currentSelection = [randomUnclickedBreed, ...shuffledRemainingBreeds.slice(0, 5)];
+        return [randomUnclickedBreed, ...shuffledRemainingBreeds.slice(0, 5)];
+    }
 
-        return currentSelection;
+    function handleGame(clickedBreed){
+        if (clickedBreed.isClicked === true) {
+            console.log('you lose');
+            return
+        } 
+
+        setBreed((prevBreeds) => {
+            const updatedBreeds = prevBreeds.map(breed => breed.breed === clickedBreed.breed
+                ? {...breed, isClicked: true}
+                : breed
+            ); 
+
+            return updatedBreeds;
+            
+        });
     }
 
     const currentSelection = selectBreeds(breeds);
     
     const breedCards = currentSelection.map(breed => 
-        <div className='card' key={breed.breed}>
+        <div className='card' key={breed.breed} onClick={() => handleGame(breed)}>
             <img className='cardImg' src={breed.src}></img>
             <p className='cardText'>{breed.breed}</p>
         </div>
