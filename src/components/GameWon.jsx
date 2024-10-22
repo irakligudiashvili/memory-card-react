@@ -1,9 +1,9 @@
-import '../styles/gameOver.css';
+import '../styles/gameWon.css';
 
-function GameOver({ currentScore, maxScore, handleRestartGame }){
+function GameWon({ currentScore, maxScore, handleRestartGame }){
     return (
         <div className='gameOver'>
-            <h2>You Lose</h2>
+            <h2>You Win!</h2>
             <div className='gameOver__score'>
                 <p>Current Score: {currentScore}</p>
                 <p>Max Score: {maxScore}</p>
@@ -13,4 +13,4 @@ function GameOver({ currentScore, maxScore, handleRestartGame }){
     )
 }
 
-export default GameOver;
+export default GameWon;

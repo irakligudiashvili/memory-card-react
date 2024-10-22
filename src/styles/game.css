@@ -3,8 +3,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 
-    width: min(1000px, 90%);
-    margin: auto;
+    width: min(1000px, 80%);
     justify-content: center;
 
     

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/game.css';
 
-function Game({ handleGameOver, handleCurrentScore }){
+function Game({ handleGameOver, handleGameWon, handleCurrentScore, }){
 
     const [breeds, setBreed] = useState([
         {breed: 'Shiba', src: 'src/assets/shiba.png', isClicked: false},
@@ -44,7 +44,8 @@ function Game({ handleGameOver, handleCurrentScore }){
         const unclickedBreeds = breeds.filter(breed => !breed.isClicked);
 
         if(unclickedBreeds.length === 0){
-            console.log('you win');
+            handleGameWon();
+            return []
         }
 
         const randomUnclickedBreed = unclickedBreeds[Math.floor(Math.random() * unclickedBreeds.length)];
