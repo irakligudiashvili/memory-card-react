@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/game.css';
 
-function Game(){
+function Game({ handleGameOver }){
 
     const [breeds, setBreed] = useState([
         {breed: 'Shiba', src: 'src/assets/shiba.png', isClicked: false},
@@ -59,6 +59,7 @@ function Game(){
     function handleGame(clickedBreed){
         if (clickedBreed.isClicked === true) {
             console.log('you lose');
+            handleGameOver();
             return
         } 
 
