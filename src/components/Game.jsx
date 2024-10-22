@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/game.css';
 
-function Game({ handleGameOver }){
+function Game({ handleGameOver, handleCurrentScore }){
 
     const [breeds, setBreed] = useState([
         {breed: 'Shiba', src: 'src/assets/shiba.png', isClicked: false},
@@ -62,6 +62,8 @@ function Game({ handleGameOver }){
             handleGameOver();
             return
         } 
+
+        handleCurrentScore();
 
         setBreed((prevBreeds) => {
             const updatedBreeds = prevBreeds.map(breed => breed.breed === clickedBreed.breed
